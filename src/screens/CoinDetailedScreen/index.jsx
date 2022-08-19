@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import Coin from "../../../assets/data/crypto.json";
 import CoinDetailedHeader from "./components/CoinDetailedHeader";
 import { AntDesign } from "@expo/vector-icons";
@@ -10,6 +10,7 @@ const CoinDetailedScreen = () => {
     image: { small },
     name,
     symbol,
+    prices,
     market_data: {
       market_cap_rank,
       current_price,
@@ -19,6 +20,9 @@ const CoinDetailedScreen = () => {
 
   const percentageColor =
     price_change_percentage_24h < 0 ? "#ea3943" : "#16c784";
+
+  const screenWidth = Dimensions.get("window").width;
+
   return (
     <View style={{ paddingHorizontal: 10 }}>
       <CoinDetailedHeader
